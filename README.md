@@ -12,7 +12,7 @@ bash install.sh
 You can configure some settings in `config.yaml`.
 
 ## Components
-Each configuration/installation is in a separate directory.
+Each configuration/installation is in a separate directory under `components/`.
 - `sudo`: Don't require a password for `sudo`
 - `swapfile`: Set up a swapfile
 - `i3`: Set up i3 window manager and install my config.
