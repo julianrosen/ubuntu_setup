@@ -5,8 +5,8 @@
 
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
 export DISPLAY=:0
-NOSUSPEND="/home/jr/.playing/nosuspend"
-#LOG="/home/jr/.playing/log"
+NOSUSPEND="$HOME/.playing/nosuspend"
+#LOG="$HOME/.playing/log"
 LOG="/dev/null"
 
 # Write the date to the log file

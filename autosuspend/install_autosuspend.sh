@@ -11,4 +11,4 @@ rm $SCRIPT_DIR/autosuspend.conf
 sed "s/@USER@/$USER/g" $SCRIPT_DIR/update_playing_crontab.in > $SCRIPT_DIR/update_playing_crontab
 crontab $SCRIPT_DIR/update_playing_crontab
 rm $SCRIPT_DIR/update_playing_crontab
-mkdir ~/.playing
+mkdir $HOME/.playing

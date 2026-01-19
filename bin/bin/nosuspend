@@ -1,11 +1,11 @@
 #!/bin/bash
 # nosuspend <time> will prevent the computer for autosuspending for time minutes
 
-touch /home/jr/.playing/nosuspend
+touch $HOME/.playing/nosuspend
 function cleanup {
-  if [ -f /home/jr/.playing/nosuspend ]
+  if [ -f $HOME/.playing/nosuspend ]
   then
-    rm /home/jr/.playing/nosuspend
+    rm $HOME/.playing/nosuspend
   fi
     echo ""
     echo -ne "Autosuspend reactivated"

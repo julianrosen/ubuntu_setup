@@ -233,20 +233,20 @@ workspace $zoom output HDMI-A-0
 workspace $xournal output HDMI-A-0
 
 
-bindsym $mod+Control+q workspace --no-auto-back-and-forth $text; exec --no-startup-id /home/jr/bin/conditional_open /usr/bin/gnome-text-editor gedit.Gedit
-bindsym $mod+Control+a workspace --no-auto-back-and-forth $browser; exec --no-startup-id /home/jr/bin/conditional_open firefox Navigator.firefox
-bindsym $mod+Control+z workspace --no-auto-back-and-forth $terminal; exec --no-startup-id /home/jr/bin/conditional_open gnome-terminal org.gnome.Terminal.Gnome-terminal
-bindsym $mod+Control+w workspace --no-auto-back-and-forth $latex; exec --no-startup-id /home/jr/bin/conditional_open texworks texworks.TeXworks
-bindsym $mod+Control+s workspace --no-auto-back-and-forth $keepass; exec /home/jr/bin/conditional_open keepassxc keepassxc.keepassxc
-bindsym $mod+Control+x workspace --no-auto-back-and-forth $music; exec /home/jr/bin/conditional_open /usr/bin/rhythmbox rhythymbox.Rhythmbox
-bindsym $mod+Control+Shift+a workspace $none; workspace $tor; exec --no-startup-id /home/jr/bin/conditional_open /usr/bin/torbrowser-launcher Navigator.Tor
-bindsym $mod+Control+i workspace --no-auto-back-and-forth $text; exec --no-startup-id gedit /home/jr/.config/i3/config
-bindsym $mod+Control+Shift+w workspace --no-auto-back-and-forth $zotero; exec --no-startup-id /home/jr/bin/conditional_open /home/jr/bin/zotero Zotero
+bindsym $mod+Control+q workspace --no-auto-back-and-forth $text; exec --no-startup-id $HOME/bin/conditional_open /usr/bin/gnome-text-editor gedit.Gedit
+bindsym $mod+Control+a workspace --no-auto-back-and-forth $browser; exec --no-startup-id $HOME/bin/conditional_open firefox Navigator.firefox
+bindsym $mod+Control+z workspace --no-auto-back-and-forth $terminal; exec --no-startup-id $HOME/bin/conditional_open gnome-terminal org.gnome.Terminal.Gnome-terminal
+bindsym $mod+Control+w workspace --no-auto-back-and-forth $latex; exec --no-startup-id $HOME/bin/conditional_open texworks texworks.TeXworks
+bindsym $mod+Control+s workspace --no-auto-back-and-forth $keepass; exec $HOME/bin/conditional_open keepassxc keepassxc.keepassxc
+bindsym $mod+Control+x workspace --no-auto-back-and-forth $music; exec $HOME/bin/conditional_open /usr/bin/rhythmbox rhythymbox.Rhythmbox
+bindsym $mod+Control+Shift+a workspace $none; workspace $tor; exec --no-startup-id $HOME/bin/conditional_open /usr/bin/torbrowser-launcher Navigator.Tor
+bindsym $mod+Control+i workspace --no-auto-back-and-forth $text; exec --no-startup-id gedit $HOME/.config/i3/config
+bindsym $mod+Control+Shift+w workspace --no-auto-back-and-forth $zotero; exec --no-startup-id $HOME/bin/conditional_open $HOME/bin/zotero Zotero
 bindsym $mod+Control+Shift+q workspace --no-auto-back-and-forth $pdf
-bindsym $mod+Control+Shift+x workspace --no-auto-back-and-forth $vlc; exec --no-startup-id /home/jr/bin/conditional_open /usr/bin/vlc vlc.vlc
-bindsym $mod+Control+Shift+d workspace --no-auto-back-and-forth $zoom; exec --no-startup-id /home/jr/bin/conditional_open /usr/bin/zoom zoom.zoom
-bindsym $mod+Control+Shift+z workspace --no-auto-back-and-forth $comm; exec --no-startup-id /home/jr/bin/conditional_open /snap/bin/slack slack.Slack
-bindsym $mod+Control+Shift+e workspace --no-auto-back-and-forth $code; exec --no-startup-id /home/jr/bin/conditional_open /snap/bin/code code.Code
+bindsym $mod+Control+Shift+x workspace --no-auto-back-and-forth $vlc; exec --no-startup-id $HOME/bin/conditional_open /usr/bin/vlc vlc.vlc
+bindsym $mod+Control+Shift+d workspace --no-auto-back-and-forth $zoom; exec --no-startup-id $HOME/bin/conditional_open /usr/bin/zoom zoom.zoom
+bindsym $mod+Control+Shift+z workspace --no-auto-back-and-forth $comm; exec --no-startup-id $HOME/bin/conditional_open /snap/bin/slack slack.Slack
+bindsym $mod+Control+Shift+e workspace --no-auto-back-and-forth $code; exec --no-startup-id $HOME/bin/conditional_open /snap/bin/code code.Code
 bindsym $sup+q workspace --no-auto-back-and-forth $jupyter
 bindsym $sup+Control+q move container to workspace $jupyter
 

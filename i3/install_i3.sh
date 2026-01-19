@@ -3,13 +3,13 @@
 SCRIPT_DIR="$(dirname -- "$0")"
 
 sudo apt install i3 i3blocks compton numlockx hsetroot wmctrl curl
-install -D $SCRIPT_DIR/i3_config ~/.config/i3/config
-install -D $SCRIPT_DIR/i3blocks_config ~/.config/i3blocks/config
+install -D $SCRIPT_DIR/i3_config $HOME/.config/i3/config
+install -D $SCRIPT_DIR/i3blocks_config $HOME/.config/i3blocks/config
 
 
 # Ran into an issue with i3 crashing because of some
 # Gnome stuff that tries to load
-mkdir -p ~/.config/systemd/user
+mkdir -p $HOME/.config/systemd/user
 systemctl --user mask \
   gnome-session.target \
   gnome-session-pre.target \
