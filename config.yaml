@@ -1,4 +1,3 @@
-# Not implemented yet
 apt_packages:
   - duplicity
   - fceux
