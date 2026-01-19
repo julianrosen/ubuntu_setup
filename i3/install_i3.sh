@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(dirname -- "$0")"
 
 sudo apt install i3 i3blocks compton numlockx hsetroot wmctrl curl
 install -D $SCRIPT_DIR/i3_config ~/.config/i3/config

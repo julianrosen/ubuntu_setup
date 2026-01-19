@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(dirname -- "$0")"
 
 sudo apt install autosuspend playerctl caffeine
 sed "s/@USER@/$USER/g" $SCRIPT_DIR/autosuspend.conf.in > $SCRIPT_DIR/autosuspend.conf

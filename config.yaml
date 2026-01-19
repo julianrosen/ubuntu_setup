@@ -1,9 +1,41 @@
 # Not implemented yet
-swapsize: 64
+apt_packages:
+  - caffeine
+  - curl
+  - duplicity
+  - fceux
+  - gnome-screenshot
+  - htop
+  - lm-sensors
+  - net-tools
+  - rhythmbox
+  - ssh
+  - torbrowser
+  - trash-cli
+  - vim
+  - vlc
+  - xclip
+swapfile_size: 64
 venv_location: ~/.venvs
 default_venv_name: general
+pip_packages:
+  - bayesian_optimization
+  - black
+  - ipykernel
+  - isort
+  - jupyter
+  - matplotlib
+  - numpy
+  - pandas
+  - scikit-learn
+  - scikit-optimize
+  - scipy
+  - seaborn
+  - statsmodels
+  - torch
+  - tqdm
+  - xgboost
 git_globals:
   name: Julian Rosen
   email: julianrosen@gmail.com
   default_branch: main
-
