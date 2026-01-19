@@ -1,7 +1,5 @@
 # Not implemented yet
 apt_packages:
-  - caffeine
-  - curl
   - duplicity
   - fceux
   - gnome-screenshot
@@ -9,10 +7,8 @@ apt_packages:
   - lm-sensors
   - net-tools
   - rhythmbox
-  - ssh
   - torbrowser
   - trash-cli
-  - vim
   - vlc
   - xclip
 swapfile_size: 64
