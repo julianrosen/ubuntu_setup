@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR="$(dirname -- "$0")"
-
 mkdir $HOME/bin
-cp $SCRIPT_DIR/bin/* $HOME/bin/
+cp "$(dirname -- "$0")/bin/"* "$HOME/bin/"

@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR="$(dirname -- "$0")"
-
 sudo apt install zsh
-install $SCRIPT_DIR/zshrc $HOME/.zshrc
+install "$(dirname -- "$0")/zshrc" "$HOME/.zshrc"
