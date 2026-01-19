@@ -194,17 +194,7 @@ bar {
 
 # Alignment of the monitors
 
-# DVI monitor
-exec_always --no-starup-id xrandr --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-0 --mode 1600x900 --pos 1920x180 --rotate normal
-
-# Large on left
-# exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output DVI-D-0 --mode 1920x1080 --pos 0x60 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal
-
-#Large on right
-#exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output DVI-D-0 --mode 1920x1080 --pos 1920x50 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal
-
-#One monitor
-#exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output HDMI-A-0 --mode 1920x1080 --pos 0x0
+exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 1920x180 --rotate normal
 
 #Monitor sleep
 exec_always --no-startup-id xset s off

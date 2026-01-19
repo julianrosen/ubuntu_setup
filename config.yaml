@@ -1,1 +1,9 @@
-# Placeholder for now
+# Not implemented yet
+swapsize: 64
+venv_location: ~/.venvs
+default_venv_name: general
+git_globals:
+  name: Julian Rosen
+  email: julianrosen@gmail.com
+  default_branch: main
+
