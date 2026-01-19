@@ -20,4 +20,4 @@
 - `components/vim/`: Vim setup and system default editor config.
 - `components/vscode/`: VS Code install and settings.
 - `components/zsh/`: Zsh install and config.
-- `config.yaml`: Placeholder config (not implemented yet).
+- `config.yaml`: Config file with some parameters that can be changed by the user.
