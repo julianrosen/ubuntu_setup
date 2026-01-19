@@ -1,0 +1,4 @@
+#!/bin/bash
+# monoff turns the displays off (they will turn back on for any action)
+sleep 0.5
+xset -display :0.0 dpms force off

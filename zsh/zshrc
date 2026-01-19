@@ -1,0 +1,80 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete # _ignored
+zstyle :compinstall filename '$HOME/.zshrc'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*:*:grep' completer
+
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+precmd_env_info() {
+  if [[ -n $VIRTUAL_ENV ]]; then
+    ENV_NAME="(${VIRTUAL_ENV:t}) "   # basename of the path
+  elif [[ -n $CONDA_DEFAULT_ENV ]]; then
+    ENV_NAME="($CONDA_DEFAULT_ENV) "
+  # When no conda environment is active, don't show anything
+  else
+    ENV_NAME=""
+  fi
+}
+precmd_functions+=( precmd_env_info )
+zstyle ':vcs_info:git*' formats "%F{green}[%b]%f"
+setopt PROMPT_SUBST
+PROMPT='%F{cyan}$ENV_NAME%F{blue}%B${PWD/#$HOME/~}%F{green}%b${vcs_info_msg_0_}%f$ '
+###
+# Enable checking for (un)staged changes, enabling use of %u and %c
+zstyle ':vcs_info:*' check-for-changes true
+# Set custom strings for an unstaged vcs repo changes (*) and staged changes (+)
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+# Set the format of the Git information for vcs_info
+zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+####
+
+
+# Lines configured by zsh-newuser-install
+#
+
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+setopt appendhistory notify
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# Home, end, backspace
+# bindkey  "^[[3~"  end-of-line
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    alias diff='diff --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ]; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+alias RM=/usr/bin/rm
+alias rm="trash -v"
+alias c='xclip -selection clipboard'
+alias v='xclip -o -selection clipboard'
+alias mv='mv -i'
+alias cp='cp -i'
+

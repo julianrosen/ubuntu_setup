@@ -1,0 +1,74 @@
+#!/bin/bash
+# update_playing checks if various audio/video players are playing, and if so,
+# adds a file to tell the system not so suspend (and also prevents idling, if necessary).
+# My autosuspend.conf file checks for the file's existence.
+
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+export DISPLAY=:0
+NOSUSPEND="/home/jr/.playing/nosuspend"
+#LOG="/home/jr/.playing/log"
+LOG="/dev/null"
+
+# Write the date to the log file
+date >> $LOG
+
+# Write idle time to the log file (minutes and seconds format)
+# echo "Idle $(($(xprintidle)/1000))s" >> $LOG
+# echo "Idle $(date -d@$(($(xprintidle)/1000)) -u +%T)" >> $LOG
+
+
+# Loop through players that can be controlled by playerctl, looking
+# for something playing. When found, write the name of the player
+# to the log file and set PLAYING=1 (will prevent autosuspend), and if 
+# the player isn't rhythmbox, prevent the display from sleeping.
+PLAYING=0
+for player in $(playerctl --list-all)
+do
+  if [ "$(playerctl -p $player status)" == "Playing" ]
+  then
+    echo $player >> $LOG
+    PLAYING=1
+    if [ "$player" != "rhythmbox" ]
+    then
+      caffeinate true
+    fi
+  fi
+done
+
+wmctrl -l| cut -d ' ' -f5- | while read -r line
+do
+    if [ "$line" == "Zoom Meeting" ]
+    then
+        echo "Zoom" >> $LOG
+        caffeinate true
+        PLAYING=1
+        break
+    fi
+done
+
+# Check if camera is on
+if [ $(lsmod | grep -i "^uvcvideo" | awk '{print $NF}') == "1" ]
+then
+    echo "Camera" >> $LOG
+    caffeinate true
+    PLAYING=1
+fi
+
+if [ "$(xset -q|tail -n 1)" == "  Monitor is On" ]
+then
+    echo "Display on" >> $LOG
+    PLAYING=1
+fi
+
+# If a player is playing or Zoom meeting in progress or display is on, don't
+# let the computer autosuspend.
+if [[ -f $NOSUSPEND ]] && [[ $PLAYING -eq 0 ]]
+then
+  rm $NOSUSPEND
+fi
+
+if [[ ! -f $NOSUSPEND ]] && [[ $PLAYING -eq 1 ]]
+then
+  touch $NOSUSPEND
+fi
+echo "" >> $LOG

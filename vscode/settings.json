@@ -1,0 +1,57 @@
+{
+    "workbench.colorTheme": "Default Light Modern",
+    "editor.fontSize": 20,
+    "notebook.lineNumbers": "on",
+    "editor.rulers": [
+        79,
+        100
+    ],
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "notebook.formatOnSave.enabled": true,
+    "python.experiments.enabled": false,
+    "black-formatter.args": [
+        "--line-length",
+        "80"
+    ],
+    "extensions.autoUpdate": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "debug.console.fontSize": 20,
+    "scm.inputFontSize": 20,
+    "terminal.integrated.fontSize": 20,
+    "chat.editor.fontSize": 20,
+    "workbench.colorCustomizations": {   
+        "editor.background": "#fcf6e3",
+        "notebook.cellEditorBackground": "#fcf6e3",
+        "notebook.outputContainerBackgroundColor": "#f4f4f4",
+        "notebook.editorBackground": "#f4f4f4",
+    },
+    "editor.dragAndDrop": false,
+    "notebook.dragAndDropEnabled": false,
+    "window.zoomLevel": 3,
+    "files.exclude": {
+        "**/.*": true
+    },
+    "editor.find.autoFindInSelection": "multiline",
+    "editor.find.loop": false,
+    "files.insertFinalNewline": true,
+    "debug.allowBreakpointsEverywhere": true,
+    "editor.selectionHighlight": true,
+    "editor.occurrencesHighlight": "off",
+    "editor.minimap.enabled": false,
+    "debugpy.debugJustMyCode": false,
+    "jupyter.debugJustMyCode": false,
+    "files.autoSave": "off",  // Global setting for autosave
+    "files.associations": {
+      "*.ipynb": "jupyter-notebook"  // Ensure that Jupyter notebooks are recognized correctly
+    },
+    "[jupyter-notebook]": {
+      "files.autoSave": "afterDelay",  // Autosave for Jupyter notebooks
+      "files.autoSaveDelay": 3000  // Delay in milliseconds, adjust as needed
+    },
+    "notebook.output.textLineLimit": 25,
+    "editor.codeActionsOnSave": {
+
+    },
+}

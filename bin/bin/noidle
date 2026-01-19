@@ -1,0 +1,27 @@
+#!/bin/bash
+# noidle <time> will prevend the computer from idling for time minutes.
+
+TIME=${1:-60}
+stty_orig=`stty -g`
+stty -echo
+if [ $TIME -eq 1 ]
+then
+  echo "Idling disabled for $TIME minute."
+else 
+  echo "Idling disabled for $TIME minutes."
+fi
+  while [ $TIME -gt 0 ]
+do
+  caffeinate true 2> /dev/null
+  TIME=$(($TIME-1))
+  echo -ne "\r                                    "
+  if [ $TIME -eq 1 ]
+  then
+    echo -ne "\r1 minute remaining"
+  else
+    echo -ne "\r$TIME minutes remaining"
+  fi
+  sleep 60
+done
+stty $stty_orig
+echo ""

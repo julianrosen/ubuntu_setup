@@ -1,0 +1,61 @@
+command=/usr/share/i3blocks/$BLOCK_NAME
+separator_block_width=50
+markup=none
+
+[memory]
+label=Memory avail.:
+interval=3
+
+[cpu_usage]
+label=CPU in use:
+interval=1
+min_width=cpu 99%
+#separator=false
+
+[disk]
+label=Disk avail.:
+interval=60
+
+[iface]
+label=W:
+instance=wlan0
+color=#00FF00
+interval=1
+#separator=false
+
+
+[iface]
+label=E:
+instance=eth0
+color=#00FF00
+interval=1
+#separator=false
+
+
+
+
+[public-ip]
+command=wget -qO - icanhazip.com
+interval=once
+
+
+[time]
+command=date +'%-m-%-e-%Y %a %-I:%M:%S %p '
+interval=1
+
+#[history]
+#command=inotifywait -qq -e close_write ~/.bash_history; tail -1 ~/.bash_history
+#interval=repeat
+
+#[window]
+#command=xtitle -s
+#interval=persist
+
+#[click-loop]
+#full_text=Click me!
+#command=while read button; do echo "Got click $button"; done
+#interval=persist
+
+#[calc-button]
+#full_text=Calculator
+#command=gnome-calculator >/dev/null

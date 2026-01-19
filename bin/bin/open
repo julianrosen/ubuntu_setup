@@ -1,0 +1,10 @@
+#!/bin/sh
+# open <file> will open file using the system's default handler, without blocking or displaying
+# output (this is comparable to the macOS open command)
+
+for file in "$@"
+do
+    xdg-open "$file" > /dev/null 2>/dev/null &>/dev/null &
+done
+
+

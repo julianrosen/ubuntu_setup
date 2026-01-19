@@ -1,0 +1,4 @@
+#!/bin/bash
+# Show the current CPU temperature
+
+echo "CPU temp: $(sensors | grep Tctl | awk 'NF>1{print $NF}' | cut -c2-)"

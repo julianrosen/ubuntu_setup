@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#stty_orig=`stty -g`
+#stty -echo
+
+
+S=$((60*$1))
+
+current_time=$(date +%s.%N)
+while [ $S -gt 0 ]
+  do
+  if [ $S -lt 60 ]
+  then
+    echo -ne "\r`date -d@$S -u +:%S` "
+  elif [ $S -lt 3600 ]
+  then
+    echo -ne "\r`date -d@$S -u +%-M:%S` "
+  else
+    echo -ne "\r`date -d@$S -u +%-H:%M:%S` "
+  fi
+  while (( $(echo "$(date +%s.%N) < $current_time"|bc) ))
+  do
+    sleep 0.05
+  done
+  current_time=$(echo "$current_time + 1"|bc)
+  S=$(($S-1))
+  echo -ne "\r                                     "
+done
+echo ""
+notify-send "$1 minute timer"

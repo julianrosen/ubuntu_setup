@@ -1,0 +1,8 @@
+#!/bin/bash
+# Close all open windows (except the Desktop environment) gracefully
+
+WIN_IDs=$(wmctrl -l | grep -vwE "Desktop$|xfce4-panel$" | cut -f1 -d' ')
+for i in $WIN_IDs
+do
+  wmctrl -ic "$i"
+done

@@ -1,0 +1,10 @@
+#!/bin/sh
+# conditional_open [executable] [window name] will open executible, provided
+# that a window sharing its name does not already exist on the current desktop.
+# This is invoked by my i3 config file
+
+current_desktop=$(wmctrl -d |grep "  \* "|cut -d ' ' -f1|tr '\n' ' ')
+if [ $(wmctrl -lx | grep "  $current_desktop" | grep "$2" | wc -l) -eq 0 ]
+then
+    bash -c "$1" &
+fi

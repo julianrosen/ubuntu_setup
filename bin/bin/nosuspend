@@ -1,0 +1,39 @@
+#!/bin/bash
+# nosuspend <time> will prevent the computer for autosuspending for time minutes
+
+touch /home/jr/.playing/nosuspend
+function cleanup {
+  if [ -f /home/jr/.playing/nosuspend ]
+  then
+    rm /home/jr/.playing/nosuspend
+  fi
+    echo ""
+    echo -ne "Autosuspend reactivated"
+}
+
+trap cleanup EXIT
+
+stty_orig=`stty -g`
+stty -echo
+
+TIME=${1:-60}
+if [ $TIME -eq 1 ]
+then
+  echo "Autosuspend disabled for $TIME minute."
+else
+  echo "Autosuspend disabled for $TIME minutes."
+fi
+while [ $TIME -gt 0 ]
+do
+  TIME=$(($TIME-1))
+  echo -ne "\r                                    "
+  if [ $TIME -eq 1 ]
+  then
+    echo -ne "\r1 minute remaining"
+  else
+    echo -ne "\r$TIME minutes remaining"
+  fi
+  sleep 60
+done
+echo ""
+stty $stty_orig
