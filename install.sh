@@ -17,6 +17,9 @@ bash components/i3/install_i3.sh
 bash components/bin/install_bin.sh
 bash components/latex/install_latex.sh
 bash components/autosuspend/install_autosuspend.sh
+DUPLICITY_BACKUP_DIR="$(yq -r '.duplicity_backup_dir // ""' config.yaml)"
+DUPLICITY_BACKUP_SOURCES="$(yq -r '.duplicity_backup_sources[]' config.yaml 2>/dev/null)"
+bash components/duplicity/install_duplicity.sh "$DUPLICITY_BACKUP_DIR" $DUPLICITY_BACKUP_SOURCES
 bash components/codex/install_codex.sh
 bash components/terminal/install_terminal.sh
 bash components/zsh/install_zsh.sh

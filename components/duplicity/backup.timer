@@ -1,0 +1,12 @@
+[Unit]
+Description=Backs up ~/code, ~/math, ~/dropbox to SSD (timer desc)
+Requires=backup.service
+
+[Timer]
+Persistent=true
+Unit=backup.service
+AccuracySec=5min
+OnCalendar=*-*-* 04:00:00
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Backs up configured directories via duplicity
+Wants=backup.timer
+
+[Service]
+Type=simple
+EnvironmentFile=%h/.config/systemd/user/backup.env
+ExecStart=%h/bin/backup -l 10 $BACKUP_SOURCES
+
+[Install]
+WantedBy=default.target

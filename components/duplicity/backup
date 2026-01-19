@@ -1,0 +1,38 @@
+#!/bin/bash
+# Backs up a list of directories to the specified backup directory. Optional
+# parameter -l [MAX CPU PERCENTAGE].
+
+
+BACKUP_DIR="${BACKUP_DIR:-}"
+LIMIT=-1
+
+if [ -z "$BACKUP_DIR" ]; then
+  echo "BACKUP_DIR is not set."
+  exit 1
+fi
+
+date >> $BACKUP_DIR/log
+echo "backup $@" >> $BACKUP_DIR/log
+echo "-------------------------------" >> $BACKUP_DIR/log
+
+while getopts 'l:' flag
+do
+    case "$flag" in
+        l) LIMIT=$OPTARG;;
+    esac
+done
+
+if [ $LIMIT -eq -1 ]
+then
+  for dirname in "${@:1}"
+  do
+    duplicity $dirname file://$BACKUP_DIR/$(basename "$dirname") --no-encryption --allow-source-mismatch
+  done
+else
+  for dirname in "${@:3}"
+  do
+    cpulimit -f -l $LIMIT -- duplicity $dirname file://$BACKUP_DIR/$(basename "$dirname") --no-encryption --allow-source-mismatch
+  done
+fi
+
+echo "Done"

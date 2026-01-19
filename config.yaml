@@ -30,6 +30,11 @@ pip_packages:
   - torch
   - tqdm
   - xgboost
+duplicity_backup_dir: .hdd/duplicity_backups
+duplicity_backup_sources:
+  - math
+  - code
+  - dropbox
 git_globals:
   name: Julian Rosen
   email: julianrosen@gmail.com
