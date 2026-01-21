@@ -52,6 +52,12 @@ host = localhost
 enabled = true
 command = test -f /home/@USER@/.playing/nosuspend*
 
+# Disable suspend if there is an active SSH connection.
+[check.SshConnections]
+class = ExternalCommand
+enabled = true
+command = sh -c 'ss -Htn state established "( sport = :22 )" | grep -q .'
+
 # Checks to determine the next scheduled wakeup are prefixed with 'wakeup'.
 [wakeup.Calendar]
 enabled = false
