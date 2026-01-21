@@ -10,7 +10,7 @@ fi
 
 mkdir -p "$HOME/texmf"
 
-ln -s "$LATEX_REPO_DIR/bibtex" "$HOME/texmf/bibtex"
-ln -s "$LATEX_REPO_DIR/tex" "$HOME/texmf/tex"
+ln -sf "$LATEX_REPO_DIR/bibtex" "$HOME/texmf/bibtex"
+ln -sf "$LATEX_REPO_DIR/tex" "$HOME/texmf/tex"
 
-ln -s "$LATEX_REPO_DIR/templates" "$HOME/.local/share/TUG/TeXworks/templates"
+ln -sf "$LATEX_REPO_DIR/templates" "$HOME/.local/share/TUG/TeXworks/templates"

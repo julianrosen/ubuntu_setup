@@ -7,7 +7,12 @@ PIP_PACKAGES=("${@:3}")
 mkdir -p "$VENV_DIR"
 sudo apt install python3-pip python3-venv
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
-python -m venv "$VENV_DIR/$ENV_NAME"
-echo "source $VENV_DIR/$ENV_NAME/bin/activate" >> $HOME/.zshrc
+if [[ ! -d "$VENV_DIR/$ENV_NAME" ]]; then
+  python -m venv "$VENV_DIR/$ENV_NAME"
+fi
+LINE="source $VENV_DIR/$ENV_NAME/bin/activate"
+if ! grep -qxF "$LINE" "$HOME/.zshrc"; then
+  echo "$LINE" >> "$HOME/.zshrc"
+fi
 source "$VENV_DIR/$ENV_NAME/bin/activate"
 pip install "${PIP_PACKAGES[@]}"
