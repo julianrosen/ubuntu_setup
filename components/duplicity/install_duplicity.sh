@@ -30,3 +30,4 @@ install -m 0755 "$SCRIPT_DIR/backup" "$HOME/bin/"
 
 systemctl --user daemon-reload
 systemctl --user enable --now backup.timer
+systemctl --user restart backup.timer
