@@ -8,6 +8,7 @@ if [[ ! -d "$LATEX_REPO_DIR" ]]; then
   exit 1
 fi
 
+# Symlink selected latex repo folders into ~/texmf and TeXworks templates.
 mkdir -p "$HOME/texmf"
 
 ln -sf "$LATEX_REPO_DIR/bibtex" "$HOME/texmf/bibtex"
