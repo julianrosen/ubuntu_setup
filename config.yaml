@@ -11,7 +11,7 @@ apt_packages:
   - vlc
   - xclip
 swapfile_size: 64
-venv_location: ~/.venvs
+venv_location: .venvs
 default_venv_name: ml
 pip_packages:
   - bayesian_optimization
