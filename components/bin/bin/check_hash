@@ -5,17 +5,17 @@ then
   exit
 fi
 
-hash_from_clipboard=$(xclip -o -selection clipboard | xargs| cut -d ' ' -f1)
+hash_from_clipboard=$(xclip -o -selection clipboard | awk '{print $1}')
 if [[ "$hash_from_clipboard" =~ ^[a-f0-9]{64}$ ]] # SHA256 hash
 then
   echo "Checking SHA256 hash $1"
-  file_hash=$(sha256sum $1 | cut -d ' ' -f1)
+  file_hash=$(sha256sum "$1" | cut -d ' ' -f1)
 elif [[ "$hash_from_clipboard" =~ ^[a-f0-9]{32}$ ]] # MD5 hash
 then
   echo "Checking MD5 hash $1"
-  file_hash=$(md5sum $1 | cut -d ' ' -f1)
+  file_hash=$(md5sum "$1" | cut -d ' ' -f1)
 else
-  echo "Invalid has in clipboard"
+  echo "Invalid hash in clipboard"
   exit
 fi
 
@@ -26,4 +26,3 @@ else
   echo "Hash mismatch"
   echo "File hash: $file_hash"
 fi
-

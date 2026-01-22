@@ -1,7 +1,7 @@
 #!/bin/bash
-# Close all open windows (except the Desktop environment) gracefully
+# Close all open windows (except the Desktop environment and terminals) gracefully
 
-WIN_IDs=$(wmctrl -l | grep -vwE "Desktop$|xfce4-panel$" | cut -f1 -d' ')
+WIN_IDs=$(wmctrl -lx | grep -vwE "Desktop$|xfce4-panel$" | grep -viE "terminal|xterm|alacritty|kitty" | cut -f1 -d' ')
 for i in $WIN_IDs
 do
   wmctrl -ic "$i"
