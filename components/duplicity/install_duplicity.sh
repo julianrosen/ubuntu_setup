@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 SCRIPT_DIR="$(dirname -- "$0")"
-BACKUP_DIR_REL="$1"
 SOURCES_REL=("${@:2}")
 
 sudo apt install duplicity
@@ -12,7 +11,7 @@ install -m 0644 "$SCRIPT_DIR/backup.service" "$HOME/.config/systemd/user/"
 install -m 0644 "$SCRIPT_DIR/backup.timer" "$HOME/.config/systemd/user/"
 
 # Write an env file with absolute paths for the backup script.
-BACKUP_DIR="$HOME/$BACKUP_DIR_REL"
+BACKUP_DIR="$HOME/$1"
 BACKUP_SOURCES=""
 for rel in "${SOURCES_REL[@]}"; do
   BACKUP_SOURCES="$BACKUP_SOURCES $HOME/$rel"
