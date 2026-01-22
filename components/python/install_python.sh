@@ -11,8 +11,9 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 if [[ ! -d "$VENV_DIR/$ENV_NAME" ]]; then
   python -m venv "$VENV_DIR/$ENV_NAME"
 fi
-LINE="VIRTUAL_ENV_DISABLE_PROMPT=1 source ~/$VENV_DIR_REL/$ENV_NAME/bin/activate"
+LINE="source ~/$VENV_DIR_REL/$ENV_NAME/bin/activate"
 if ! grep -qxF "$LINE" "$HOME/.zshrc"; then
+  echo "export VIRTUAL_ENV_DISABLE_PROMPT=1" >> "$HOME/.zshrc"
   echo "$LINE" >> "$HOME/.zshrc"
 fi
 source "$VENV_DIR/$ENV_NAME/bin/activate"
