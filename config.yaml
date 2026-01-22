@@ -12,7 +12,7 @@ apt_packages:
   - xclip
 swapfile_size: 64
 venv_location: ~/.venvs
-default_venv_name: general
+default_venv_name: ml
 pip_packages:
   - bayesian_optimization
   - black
