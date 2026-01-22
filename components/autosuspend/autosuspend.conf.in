@@ -48,7 +48,8 @@ terminal = .*
 host = localhost
 
 # The file is present when rhythmbox is playing
-[check.ExternalCommand]
+[check.IsSuspensionDisabled]
+class = ExternalCommand
 enabled = true
 command = test -f /home/@USER@/.playing/nosuspend*
 
