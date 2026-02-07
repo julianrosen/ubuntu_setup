@@ -16,6 +16,13 @@ systemctl --user mask \
   gnome-session-wayland.target \
   gnome-session-x11.target
 
+mkdir -p $HOME/.config/autostart
+for file in /etc/xdg/autostart/*gnome*.desktop; do
+  [ -e "$file" ] || continue
+  cp "$file" $HOME/.config/autostart/
+  echo "Hidden=true" >> "$HOME/.config/autostart/$(basename "$file")"
+done
+
 
 # Adjust GDM so that it shows login options
 FILE=/etc/gdm3/custom.conf

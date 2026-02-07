@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt install texlive-latex-extra texworks
-LATEX_REPO_DIR="$(dirname -- "$0")/../../../latex"
+LATEX_REPO_DIR="$(cd "$(dirname -- "$0")/../../../latex" && pwd)"
 
 if [[ ! -d "$LATEX_REPO_DIR" ]]; then
   echo "Please clone the latex repo next to this repo (expected at: $LATEX_REPO_DIR)."

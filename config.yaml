@@ -6,7 +6,7 @@ apt_packages:
   - lm-sensors
   - net-tools
   - rhythmbox
-  - torbrowser
+  - torbrowser-launcher
   - trash-cli
   - vlc
   - xclip
