@@ -2,9 +2,10 @@
 
 SCRIPT_DIR="$(dirname -- "$0")"
 
-sudo apt install i3 i3blocks compton numlockx hsetroot wmctrl curl
+sudo apt install i3 i3blocks picom numlockx hsetroot wmctrl curl
 install -D $SCRIPT_DIR/i3_config $HOME/.config/i3/config
 install -D $SCRIPT_DIR/i3blocks_config $HOME/.config/i3blocks/config
+install -D $SCRIPT_DIR/picom.conf $HOME/.config/picom/picom.conf
 
 
 # Ran into an issue with i3 crashing because of some

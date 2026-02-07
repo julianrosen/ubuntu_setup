@@ -278,7 +278,7 @@ bindsym $mod+Shift+Tab exec --no-startup-id rofi -show
 bindsym $mod+Control+Tab exec --no-startup-id rofi -show
 
 # To prevent screen tearing
-exec_always --no-startup-id compton --config ~/.config/compton.conf
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # Blue background
 exec_always --no-startup-id hsetroot -solid '#92b7fe'
