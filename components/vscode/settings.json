@@ -3,8 +3,7 @@
     "editor.fontSize": 20,
     "notebook.lineNumbers": "on",
     "editor.rulers": [
-        79,
-        100
+        80
     ],
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
