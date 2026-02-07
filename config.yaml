@@ -10,7 +10,7 @@ apt_packages:
   - trash-cli
   - vlc
   - xclip
-swapfile_size: 64
+swapfile_size: 32
 venv_location: .venvs
 default_venv_name: ml
 pip_packages:

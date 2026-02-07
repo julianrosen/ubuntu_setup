@@ -3,7 +3,7 @@
 SCRIPT_DIR="$(dirname -- "$0")"
 SOURCES_REL=("${@:2}")
 
-sudo apt install duplicity
+sudo apt install duplicity cpulimit
 
 # Install the user-level systemd units.
 mkdir -p "$HOME/.config/systemd/user"
