@@ -59,3 +59,7 @@ interval=1
 #[calc-button]
 #full_text=Calculator
 #command=gnome-calculator >/dev/null
+
+[battery]
+command=sh -c 'for B in /sys/class/power_supply/BAT*; do [ -e "$B" ] || exit 0; cap=$(cat "$B/capacity"); status=$(cat "$B/status"); if [ "$status" = "Charging" ]; then echo "⚡ $cap%"; else echo "🔋 $cap%"; fi; exit 0; done'
+interval=30
