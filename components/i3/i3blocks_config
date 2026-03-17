@@ -3,17 +3,17 @@ separator_block_width=50
 markup=none
 
 [memory]
-label=Memory avail.:
+label=Mem free:
 interval=3
 
 [cpu_usage]
-label=CPU in use:
+label=CPU:
 interval=1
 min_width=cpu 99%
 #separator=false
 
 [disk]
-label=Disk avail.:
+label=Disk free:
 interval=60
 
 [iface]
